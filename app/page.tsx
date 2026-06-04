@@ -9,10 +9,11 @@ export default async function Home() {
       <h1 className="text-3xl font-bold mb-8">Shopify Products</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {products.map(({ node }: any) => (
+        {products.map(({ node }) => (
           <div key={node.id} className="border rounded-lg p-4">
             {node.featuredImage && (
-              <Image className="rounded-lg h-64"
+              <Image
+                className="rounded-lg h-64"
                 src={node.featuredImage.url}
                 alt={node.title}
                 width={400}
