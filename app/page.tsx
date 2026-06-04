@@ -11,13 +11,14 @@ export default async function Home() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {products.map(({ node }: any) => (
           <div key={node.id} className="border rounded-lg p-4">
-            <Image  
-              src={node.featuredImage?.url}
-              alt={node.title}
-              width={400}
-              height={400}
-              className="w-full h-60 object-cover"
-            />
+            {node.featuredImage && (
+              <Image className="rounded-lg h-64"
+                src={node.featuredImage.url}
+                alt={node.title}
+                width={400}
+                height={400}
+              />
+            )}
 
             <h2 className="font-semibold mt-4">{node.title}</h2>
 
