@@ -4,30 +4,30 @@ const SHOPIFY_API_VERSION = "2025-01";
 
 export async function shopifyFetch<TData>(
   query: string,
-  variables?: ShopifyVariables
+  variables?: ShopifyVariables,
 ): Promise<TData> {
   const storeDomain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN;
-  const token = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN;
+  const token = process.env.NEXT_PUBLIC_SHOPIFY_ADMIN_TOKEN;
 
   if (!storeDomain || !token) {
     throw new Error("Missing Shopify storefront environment variables.");
   }
 
   const response = await fetch(
-    `https://${storeDomain}/api/${SHOPIFY_API_VERSION}/graphql.json`,
+    `https://${storeDomain}/admin/api/${SHOPIFY_API_VERSION}/graphql.json`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Shopify-Storefront-Access-Token": token,
+        "X-Shopify-Access-Token": token,
       },
       body: JSON.stringify({ query, variables }),
-    }
+    },
   );
 
   if (!response.ok) {
     throw new Error(
-      `Shopify API Error: ${response.status} ${response.statusText}`
+      `Shopify API Error: ${response.status} ${response.statusText}`,
     );
   }
 

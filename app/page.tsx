@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/common/Navbar";
 import { getProducts } from "@/lib/shopify";
 import Image from "next/image";
 
@@ -6,6 +7,7 @@ export default async function Home() {
 
   return (
     <div className="max-w-7xl mx-auto p-10">
+      <Navbar />
       <h1 className="text-3xl font-bold mb-8">Shopify Products</h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

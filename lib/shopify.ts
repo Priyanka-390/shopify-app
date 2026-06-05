@@ -1,6 +1,5 @@
 export { shopifyFetch } from "./shopify/client";
-export { getProducts } from "./shopify/products";
-export { PRODUCTS_QUERY } from "./shopify/queries";
+  export { getProducts } from "./shopify/products";
 export type {
   ProductEdge,
   ProductsData,

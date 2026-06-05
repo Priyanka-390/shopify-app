@@ -20,3 +20,16 @@ export const PRODUCTS_QUERY = `
     }
   }
 `;
+export const MENU_QUERY = `
+query {
+  menu(id: "gid://shopify/Menu/252848275697") {
+    id
+    title
+    items {
+      id
+      title
+      url
+    }
+  }
+}
+`;
